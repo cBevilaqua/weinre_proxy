@@ -11,7 +11,7 @@ var execFile = require('child_process').execFile;
 //
 var proxy = httpProxy.createProxyServer({});
 
-var child = execFile(absolutePath, ['--boundHost 0.0.0.0', '--httpPort 8080'], function(error, stdout, stderr){
+var child = execFile(absolutePath, ['--boundHost 0.0.0.0', '--httpPort 8081'], function(error, stdout, stderr){
     if (error) {
         console.error('stderr', stderr);
         throw error;
@@ -27,8 +27,8 @@ var child = execFile(absolutePath, ['--boundHost 0.0.0.0', '--httpPort 8080'], f
 var server = http.createServer(function(req, res) {
   // You can define here your custom logic to handle the request
   // and then proxy the request.
-  proxy.web(req, res, { target: 'http://127.0.0.1:8080' });
+  proxy.web(req, res, { target: 'http://127.0.0.1:8081' });
 });
 
-console.log("listening on port 80")
-server.listen(80);
+console.log("listening on port 8081")
+server.listen(8080);
