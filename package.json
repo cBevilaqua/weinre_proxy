@@ -1,0 +1,15 @@
+{
+  "name": "weinre_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-proxy": "^1.16.2",
+    "weinre": "^2.0.0-pre-I0Z7U9OV"
+  }
+}
