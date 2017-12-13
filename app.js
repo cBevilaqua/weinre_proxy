@@ -30,5 +30,5 @@ var server = http.createServer(function(req, res) {
   proxy.web(req, res, { target: 'http://127.0.0.1:8081' });
 });
 
-console.log("listening on port 8081")
-server.listen(8080);
+console.log("listening on port 3001")
+server.listen(3001);
