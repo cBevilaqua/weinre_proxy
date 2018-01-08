@@ -1,11 +1,8 @@
 # README #
+To run the weinre proxy simply run:
 
-This README would normally document whatever steps are necessary to get your application up and running.
+npm install
 
-### What is this repository for? ###
+then 
 
-* Incapsulate weinre server
-
-### How do I get set up? ###
-
-* npm install
+node app.js
