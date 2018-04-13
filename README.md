@@ -1,8 +1,9 @@
 # README #
-To run the weinre proxy simply run:
+
+# Installation
 
 npm install
 
-then 
+# Run
 
-node app.js
+node app.js or PORT=YOUR_PORT_NUMBER node app.js

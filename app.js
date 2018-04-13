@@ -1,24 +1,24 @@
-var http = require('http');
-var httpProxy = require('http-proxy');
-var weinre = require('weinre');
-var path = require("path");
-var absolutePath = path.resolve(__dirname + "/node_modules/weinre/weinre");
-var childProcess = require('child_process')
-var execFile = childProcess.execFile;
+const http = require('http');
+const httpProxy = require('http-proxy');
+const weinre = require('weinre');
+const path = require("path");
 
-//
+const childProcess = require('child_process')
+
 // Create a proxy server with custom application logic
 //
 var proxy = httpProxy.createProxyServer({});
 
+var command = path.resolve(__dirname, "node_modules/weinre/weinre") + ' --boundHost 0.0.0.0 --httpPort 8081';
 
-var child = execFile(absolutePath, ['--boundHost 0.0.0.0', '--httpPort 8081'], function(error, stdout, stderr){
-    if (error) {
-    	console.log("error ", error);
-        console.error('stderr', stderr);
-        throw error;
-    }
-    console.log('stdout', stdout);
+var child = childProcess.exec(command);
+
+child.stdout.on('data', (data) => {
+  console.log(`weinre output: ${data}`);
+});
+
+child.stderr.on('data', (data) => {
+  console.error(`weinre error: ${data}`);
 });
 
 //
