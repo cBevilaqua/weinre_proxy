@@ -2,17 +2,19 @@ var http = require('http');
 var httpProxy = require('http-proxy');
 var weinre = require('weinre');
 var path = require("path");
-var absolutePath = path.resolve("node_modules/weinre/weinre");
-
-var execFile = require('child_process').execFile;
+var absolutePath = path.resolve(__dirname + "/node_modules/weinre/weinre");
+var childProcess = require('child_process')
+var execFile = childProcess.execFile;
 
 //
 // Create a proxy server with custom application logic
 //
 var proxy = httpProxy.createProxyServer({});
 
+
 var child = execFile(absolutePath, ['--boundHost 0.0.0.0', '--httpPort 8081'], function(error, stdout, stderr){
     if (error) {
+    	console.log("error ", error);
         console.error('stderr', stderr);
         throw error;
     }
@@ -32,6 +34,6 @@ var server = http.createServer(function(req, res) {
 
 var port = process.env.PORT || 3000;
 
-server.listen(3001, function() {
+server.listen(port, function() {
     console.log("Server listening on " + port);
 });
