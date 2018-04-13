@@ -1,6 +1,6 @@
 # README #
 
-Run Weinre inspectir (http://people.apache.org/~pmuellr/weinre/) proxied by another NodeJS web server.
+Run Weinre inspector (http://people.apache.org/~pmuellr/weinre/) proxied by another NodeJS web server.
 
 # Installation
 
